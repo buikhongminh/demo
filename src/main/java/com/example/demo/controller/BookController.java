@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1")
 @Log4j2
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 public class BookController {
     private final BookService bookService;
     @Autowired
@@ -52,7 +52,7 @@ public class BookController {
             var response = CommonResponse.builder()
                     .code(StatusCode.SUCCESS)
                     .message("SUCCESS")
-                    .data(book)
+                    .data(book.get())
                     .build();
             return ResponseEntity.ok(response);
         }

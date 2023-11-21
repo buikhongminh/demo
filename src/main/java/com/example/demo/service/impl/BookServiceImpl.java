@@ -20,7 +20,7 @@ public class BookServiceImpl implements BookService {
     }
     @Override
     public Optional<Book> getBookDetail(Integer id) {
-        return Optional.of(bookRepository.getById(id));
+        return bookRepository.findById(id);
     }
     @Override
     public List<Book> getAllBooks() {
